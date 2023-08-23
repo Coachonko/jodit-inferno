@@ -1,0 +1,30 @@
+{
+  "name": "jodit-inferno",
+  "version": "1.0.0",
+  "description": "Inferno wrapper for Jodit editor",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Coachonko/jodit-inferno.git"
+  },
+  "keywords": [
+    "inferno",
+    "jodit"
+  ],
+  "author": {
+    "name": "Coachonko",
+    "email": "info@coachonko.com",
+    "url": "https://coachonko.com"
+  },
+  "license": "NCSA",
+  "bugs": {
+    "url": "https://github.com/Coachonko/jodit-inferno/issues"
+  },
+  "homepage": "https://github.com/Coachonko/jodit-inferno#readme",
+  "dependencies": {
+    "jodit": "^3.24.9"
+  },
+  "peerDependencies": {
+    "inferno": "^8.2.2"
+  }
+}
