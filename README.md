@@ -1,4 +1,4 @@
-# inferno-jodit
+# jodit-inferno
 
 Inferno wrapper for Jodit WYSIWYG editor
 
