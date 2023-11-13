@@ -20,6 +20,10 @@ export default class JoditEditor extends Component {
     this.textArea = createRef()
     this.preClassName = null
 
+    this.state = {
+      isReady: false
+    }
+
     this.handleBlur = this.handleBlur.bind(this)
     this.handleInput = this.handleInput.bind(this)
   }
@@ -53,6 +57,7 @@ export default class JoditEditor extends Component {
 
       this.textArea.current = element
     }
+    this.setState({isReady: true})
   }
 
   componentWillUnmount () {
@@ -61,7 +66,7 @@ export default class JoditEditor extends Component {
     }
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate (lastProps) {
     const { className } = this.props
     const classList = this.textArea.current?.container?.classList
 
@@ -84,14 +89,14 @@ export default class JoditEditor extends Component {
     if (
       (!this.textArea.current.events || (!this.props.onBlur && !this.props.onInput)) &&
       (!this.textArea.current.events) &&
-      (prevProps.onBlur || prevProps.onInput)
+      (lastProps.onBlur || lastProps.onInput)
     ) {
       this.textArea.current?.events
         ?.off('blur', this.handleBlur)
         .off('input', this.handleInput)
     }
 
-    if ((this.props.onBlur || this.props.onInput) && !prevProps.onBlur && !prevProps.onInput) {
+    if ((this.props.onBlur || this.props.onInput) && !lastProps.onBlur && !lastProps.onInput) {
       this.textArea.current?.events
         ?.on('blur', this.handleBlur)
         .on('input', this.handleInput)
@@ -100,11 +105,15 @@ export default class JoditEditor extends Component {
     if (this.textArea.current && this.textArea?.current?.value !== this.props.value) {
       this.textArea.current.value = this.props.value
     }
+
+    if (this.state.isReady && this.textArea.current && this.textArea?.current?.value !== this.props.value) {
+      this.textArea.current.value = this.props.value
+    }
   }
 
   handleBlur (e) {
     if (this.props.onBlur) {
-      this.props.onBlur(this.textArea.current.value)
+      this.props.onBlur(this.textArea.current.value, e)
     }
   }
 
