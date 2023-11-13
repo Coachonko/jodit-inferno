@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Coachonko/jodit-inferno.git"
+    "url": "git+https://github.com/Coachonko/jodit-inferno.git"
   },
   "keywords": [
     "inferno",
