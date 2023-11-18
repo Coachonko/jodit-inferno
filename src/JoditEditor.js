@@ -125,7 +125,7 @@ export default class JoditEditor extends Component {
 
   render () {
     return (
-      <div className='jodit-container'>
+      <div className='jodit-inferno-container'>
         <textarea name={this.props.name} id={this.props.id} ref={this.textArea} />
       </div>
     )
