@@ -1,6 +1,8 @@
 # jodit-inferno
 
-Inferno wrapper for Jodit WYSIWYG editor
+Inferno wrapper for Jodit WYSIWYG editor.
+
+Requires Inferno JSX
 
 ## Usage
 
